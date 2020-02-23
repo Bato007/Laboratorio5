@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".UI.ResultFragment">
+
+    <data>
+        <variable
+            name="surveyViewModel"
+            type="com.example.laboratoriof.SurveyViewModel" />
+        <variable
+            name="resultsViewModel"
+            type="com.example.laboratoriof.ResultsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/result"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.052" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_rate"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/scoreText"
+            app:layout_constraintEnd_toEndOf="@+id/scoreText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/scoreText"
+            app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+        <TextView
+            android:id="@+id/scoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{resultsViewModel.appScore.toString()}"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_of_surveys"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/surveyNumber"
+            app:layout_constraintEnd_toEndOf="@+id/surveyNumber"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/surveyNumber"
+            app:layout_constraintTop_toBottomOf="@+id/scoreText" />
+
+        <TextView
+            android:id="@+id/surveyNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:text="@{resultsViewModel.surveyNumber.toString()}"
+            app:layout_constraintBottom_toTopOf="@+id/goBack"
+            app:layout_constraintEnd_toEndOf="@+id/goBack"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/goBack"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <Button
+            android:id="@+id/goBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/holo_blue_bright"
+            android:text="@string/go_back"
+            app:layout_constraintBottom_toTopOf="@+id/watchAnswers"
+            app:layout_constraintEnd_toEndOf="@+id/watchAnswers"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/watchAnswers"
+            app:layout_constraintTop_toBottomOf="@+id/surveyNumber" />
+
+        <Button
+            android:id="@+id/watchAnswers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@android:color/holo_blue_bright"
+            android:text="@string/see_results"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goBack" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Survey</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="write_your_comment">Write Your Comment</string>
+    <string name="next">Next</string>
+    <string name="your_answer">Your Answer</string>
+    <string name="enter_your_answer">Enter Your Answer</string>
+    <string name="result">Results</string>
+    <string name="go_back">Go Back</string>
+    <string name="see_results">See Results</string>
+    <string name="how_was_our_service">How was our Service?</string>
+    <string name="start">Start</string>
+    <string name="survey_image">surveyImage</string>
+    <string name="save_question_button">Save</string>
+    <string name="app_rate">App Rate:</string>
+    <string name="number_of_surveys">Number of Surveys</string>
+    <string name="about_of">About Of</string>
+    <string name="string_about">El objetivo de esta aplicación es proveer de una encuesta de satisfacción a un cliente que acaba de utilizar nuestros servicios. El app permite agregar preguntas, realizar la encuesta, mostrar los resultados y luego dar la opción de repetir la encuesta.</string>
+    <string name="about">About</string>
+</resources>

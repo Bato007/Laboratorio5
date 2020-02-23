@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.laboratoriof.UI.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_addQuestionFragment"
+            app:destination="@+id/addQuestionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment3"
+            app:destination="@id/aboutFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/addQuestionFragment"
+        android:name="com.example.laboratoriof.UI.AddQuestionFragment"
+        android:label="add_question_fragment"
+        tools:layout="@layout/add_question_fragment" >
+        <action
+            android:id="@+id/action_addQuestionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.laboratoriof.UI.QuestionFragment"
+        android:label="question_fragment"
+        tools:layout="@layout/question_fragment" >
+        <action
+            android:id="@+id/action_questionFragment_to_rateFragment"
+            app:destination="@id/rateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateFragment"
+        android:name="com.example.laboratoriof.UI.RateFragment"
+        android:label="rate_fragment"
+        tools:layout="@layout/rate_fragment" >
+        <action
+            android:id="@+id/action_rateFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.laboratoriof.UI.ResultFragment"
+        android:label="result_fragment"
+        tools:layout="@layout/result_fragment" >
+        <action
+            android:id="@+id/action_resultFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment3"
+        android:name="com.example.laboratoriof.UI.AboutFragment"
+        android:label="AboutFragment" />
+</navigation>
