@@ -24,9 +24,7 @@ class ResultFragment : Fragment() {
 
     // Instanciando los view models
     private lateinit var viewModelResult: ResultsViewModel
-    private lateinit var  viewModelSurvey: SurveyViewModel
-    private lateinit var viewModelSurveyFactory: SurveyViewFactory
-    private lateinit var viewModelResultsFactory: ResultsViewFactory
+    private lateinit var viewModelSurvey: SurveyViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -35,16 +33,14 @@ class ResultFragment : Fragment() {
             R.layout.result_fragment, container, false)
 
         // Inicializando los view models
-        viewModelSurveyFactory = SurveyViewFactory()
-        viewModelResultsFactory = ResultsViewFactory()
-
-        viewModelSurvey = ViewModelProviders.of(this, viewModelSurveyFactory).get(SurveyViewModel::class.java)
-        viewModelResult = ViewModelProviders.of(this, viewModelResultsFactory).get(ResultsViewModel::class.java)
+        viewModelSurvey = ViewModelProviders.of(activity!!).get(SurveyViewModel::class.java)
+        viewModelResult = ViewModelProviders.of(activity!!).get(ResultsViewModel::class.java)
 
         // Mostrando los datos obtenidos
         resultBinding.surveyViewModel = viewModelSurvey
         resultBinding.resultsViewModel = viewModelResult
 
+        resultBinding.lifecycleOwner = viewLifecycleOwner
 
         resultBinding.goBack.setOnClickListener{view: View ->
             view.findNavController().navigate(R.id.action_resultFragment_to_mainFragment)

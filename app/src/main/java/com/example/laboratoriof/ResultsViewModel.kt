@@ -36,7 +36,7 @@ class ResultsViewModel: ViewModel(){
     // Agregando respuestas a la lista y reseteando el valor de input
     fun addAnswer(){
         answers?.add(inputAnswer.value.toString())
-        inputAnswer.value = ""
+        inputAnswer.value = " "
     }
 
     // Haciendo los calculos para conseguir el promedio

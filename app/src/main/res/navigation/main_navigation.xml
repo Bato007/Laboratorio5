@@ -26,7 +26,8 @@
         tools:layout="@layout/add_question_fragment" >
         <action
             android:id="@+id/action_addQuestionFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@+id/addQuestionFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
@@ -53,7 +54,8 @@
         tools:layout="@layout/result_fragment" >
         <action
             android:id="@+id/action_resultFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@+id/questionFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment3"

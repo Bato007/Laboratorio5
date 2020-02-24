@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.laboratoriof.R
-import com.example.laboratoriof.ResultsViewFactory
 import com.example.laboratoriof.ResultsViewModel
 import com.example.laboratoriof.databinding.RateFragmentBinding
 
@@ -27,7 +26,6 @@ class RateFragment : Fragment() {
 
     // View Models
     private lateinit var viewModelResult: ResultsViewModel
-    private lateinit var viewModelResultsFactory: ResultsViewFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -35,11 +33,11 @@ class RateFragment : Fragment() {
         rateBinding = DataBindingUtil.inflate(inflater,
             R.layout.rate_fragment, container, false)
 
-        // Factories
-        viewModelResultsFactory = ResultsViewFactory()
-        viewModelResult = ViewModelProviders.of(this, viewModelResultsFactory).get(ResultsViewModel::class.java)
+        viewModelResult = ViewModelProviders.of(activity!!).get(ResultsViewModel::class.java)
 
         rateBinding.resultsViewModel = viewModelResult
+
+        rateBinding.lifecycleOwner = viewLifecycleOwner
 
         rateBinding.nextButt.setOnClickListener{view: View ->
             viewModelResult.updateRate(rateBinding.ratingBar.rating)

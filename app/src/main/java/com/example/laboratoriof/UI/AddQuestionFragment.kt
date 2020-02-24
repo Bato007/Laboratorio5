@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.laboratoriof.R
-import com.example.laboratoriof.SurveyViewFactory
 import com.example.laboratoriof.SurveyViewModel
 import com.example.laboratoriof.databinding.AddQuestionFragmentBinding
 
@@ -24,7 +23,6 @@ class AddQuestionFragment : Fragment() {
 
     // View models
     private lateinit var viewModelSurvey: SurveyViewModel
-    private lateinit var  viewModelSurveyFactory: SurveyViewFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -33,10 +31,10 @@ class AddQuestionFragment : Fragment() {
             R.layout.add_question_fragment, container, false)
 
         // Inicializando models
-        viewModelSurveyFactory = SurveyViewFactory()
-        viewModelSurvey = ViewModelProviders.of(this, viewModelSurveyFactory).get(SurveyViewModel::class.java)
+        viewModelSurvey = ViewModelProviders.of(activity!!).get(SurveyViewModel::class.java)
 
         addFragment.questionViewModel = viewModelSurvey
+        addFragment.lifecycleOwner = viewLifecycleOwner
 
         setHasOptionsMenu(true)
         return addFragment.root

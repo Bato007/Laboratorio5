@@ -26,8 +26,6 @@ class QuestionFragment : Fragment() {
     // View Models
     private lateinit var viewModelSurvey: SurveyViewModel
     private lateinit var viewModelResult: ResultsViewModel
-    private lateinit var viewModelSurveyFactory: SurveyViewFactory
-    private lateinit var viewModelResultsFactory: ResultsViewFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -38,18 +36,18 @@ class QuestionFragment : Fragment() {
 
 
         // Inicializando los view models
-        viewModelSurveyFactory = SurveyViewFactory()
-        viewModelResultsFactory = ResultsViewFactory()
-
-        viewModelSurvey = ViewModelProviders.of(this, viewModelSurveyFactory).get(SurveyViewModel::class.java)
-        viewModelResult = ViewModelProviders.of(this, viewModelResultsFactory).get(ResultsViewModel::class.java)
+        viewModelSurvey = ViewModelProviders.of(activity!!).get(SurveyViewModel::class.java)
+        viewModelResult = ViewModelProviders.of(activity!!).get(ResultsViewModel::class.java)
 
         // LifeCycle y Data
         questionBinding.surveyViewModel = viewModelSurvey
         questionBinding.resultsViewModel = viewModelResult
 
+        questionBinding.lifecycleOwner = viewLifecycleOwner
+
         questionBinding.newtButt.setOnClickListener{view: View ->
-                if(viewModelSurvey.questionsLeft.value!! >= (viewModelSurvey.getListSize())){
+                if(viewModelSurvey.questionsLeft.value!! == (viewModelSurvey.getListSize())){
+                    viewModelSurvey.restartQuestions()
                     view.findNavController().navigate(R.id.action_questionFragment_to_rateFragment)
                 }else{
                     questionUpdate()

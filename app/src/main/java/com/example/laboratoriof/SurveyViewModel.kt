@@ -20,7 +20,7 @@ class SurveyViewModel: ViewModel(){
     val questionsLeft: LiveData<Int>
         get() = _questionsLeft
 
-    private var questionsList: MutableList<String> = listOf("Do you have any Comments or Suggestions?").toMutableList()
+    private var questionsList = mutableListOf("Do you have any Comments or Suggestions?")
 
     // Iniciando al menos dos preguntas en la encuesta
     init {
@@ -28,6 +28,7 @@ class SurveyViewModel: ViewModel(){
         _questionsLeft.value = 1
     }
 
+    // Modificando las preguntas
     fun addNewQuestion(){
         questionsList.add(inputText.value.toString())
         inputText.value = ""
@@ -37,6 +38,12 @@ class SurveyViewModel: ViewModel(){
         _questionText.value = questionsList[questionsLeft.value!! - 1]
         _questionsLeft.value = _questionsLeft.value!!.plus(1)
     }
+
+    fun restartQuestions(){
+        _questionsLeft.value = 1
+        inputText.value = " "
+    }
+
 
     // Conseguir el largo de la lista
     fun getListSize(): Int {
