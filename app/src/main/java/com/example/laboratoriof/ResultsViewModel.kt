@@ -1,5 +1,6 @@
 package com.example.laboratoriof
 
+import android.util.Log
 import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,7 +23,7 @@ class ResultsViewModel: ViewModel(){
         get() = _surveyNumber
 
     // Se guardan los datos que
-    private var answers: MutableList<String>? = null
+    private var answers = mutableListOf<String>()
 
     // Para llevar el control del promedio
     private var container = 0F
@@ -35,8 +36,7 @@ class ResultsViewModel: ViewModel(){
 
     // Agregando respuestas a la lista y reseteando el valor de input
     fun addAnswer(){
-        answers?.add(inputAnswer.value.toString())
-        inputAnswer.value = " "
+        answers.add(inputAnswer.value.toString())
     }
 
     // Haciendo los calculos para conseguir el promedio
@@ -52,11 +52,13 @@ class ResultsViewModel: ViewModel(){
 
     // Consiguiendo los resultados
     fun getResults(): String{
-        val mensaje: String
+        var mensaje = " "
+        var contador = 0
 
         // Consiguiendo todas las respuestas
-
-        mensaje = "Hola"
+        for (i in answers) {
+            mensaje += "${contador++}. ${i}\n"
+        }
 
         return mensaje
     }

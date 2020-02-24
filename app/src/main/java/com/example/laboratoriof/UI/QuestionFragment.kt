@@ -59,8 +59,8 @@ class QuestionFragment : Fragment() {
 
     // Actualizando la pregunta en la que esta
     private fun questionUpdate(){
-        viewModelSurvey.changeQuestion()
         viewModelResult.addAnswer()
+        viewModelSurvey.changeQuestion()
     }
 
 }

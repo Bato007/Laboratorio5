@@ -31,7 +31,6 @@ class SurveyViewModel: ViewModel(){
     // Modificando las preguntas
     fun addNewQuestion(){
         questionsList.add(inputText.value.toString())
-        inputText.value = ""
     }
 
     fun changeQuestion(){
@@ -41,7 +40,6 @@ class SurveyViewModel: ViewModel(){
 
     fun restartQuestions(){
         _questionsLeft.value = 1
-        inputText.value = " "
     }
 
 
